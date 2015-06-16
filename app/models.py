@@ -7,8 +7,7 @@ class ZipCodeModel(object):
     """ZipCodeModel
     """
     def __init__(self, config):
-        self.client = MongoClient(config.MONGO_HOST, config.MONGO_PORT)
-        self.db = Database(self.client, config.MONGO_DB_NAME)
+        self.db = Database(MongoClient(config.MONGO_HOST, config.MONGO_PORT))
         self.zipcodes = self.db.zipcodes
 
     def insert(self, data):

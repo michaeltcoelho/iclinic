@@ -8,7 +8,6 @@ from .models import ZipCodeModel
 from .postmon import postmon
 from .validators import validate_zipcode_on_before, validate_zipcode
 
-
 logger = logging.getLogger(__name__)
 
 handler = logging.StreamHandler()
@@ -16,7 +15,7 @@ formatter = logging.Formatter(
     '[%(asctime)s] [%(name)s] [%(levelname)s] %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 
 def error_serializer(req, exception):
