@@ -3,9 +3,10 @@
 * An activated python virtualenv.
 * mongodb.
 
-####Considering you already have installed the dependencies, created and activated your virtualenv:
+#### Considering you already have installed the dependencies, created and activated your virtualenv:
 
-### Install Shortener
+
+### Installing
 
 Clone the repository and install it:
 
@@ -19,13 +20,13 @@ Run the following command:
 
 `make install`
 
-### Test
+### Testing
 
 Running tests:
 
 `make test`
 
-### Run
+### Running
 
 Running the application:
 
