@@ -28,13 +28,7 @@ make install
 
 # After installling
 
-After installing the app on your machine, edit the config.py file with information about your mongodb
-
-```bash
-cd iclinic/apps
-```
-
-config.py
+After installing the app, edit the `iclinic/apps/config.py` file with information about your mongodb running instance
 
 ```python
 
