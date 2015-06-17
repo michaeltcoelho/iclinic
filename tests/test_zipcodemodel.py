@@ -60,7 +60,7 @@ class ZipCodeModelTest(unittest.TestCase):
         should return a list of 3 items
         """
         zipcodes = self.model.all()
-        self.assertEqual(zipcodes.count(), 27)
+        self.assertEqual(zipcodes.count(), 40)
 
     def test_4_all_with_limit(self):
         """Gets all items of the collection with a limit
