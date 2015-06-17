@@ -32,8 +32,8 @@ class ZipCodeModel(object):
         when not, return all data in the collection
         """
         if not limit:
-            return self.zipcodes.find()
-        return self.zipcodes.find().limit(int(limit))
+            return self.zipcodes.find({}, {'_id': False})
+        return self.zipcodes.find({}, {'_id': False}).limit(int(limit))
 
     def find_by_zipcode(self, zipcode):
         """Returns a document by zip_code
