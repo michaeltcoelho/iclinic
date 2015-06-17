@@ -53,7 +53,7 @@ class ZipCodeResourceTest(unittest.TestCase):
         should return 18 json objects and status code 200
         """
         req = requests.get(self.endpoint)
-        self.assertEqual(len(req.json()), 31)
+        self.assertEqual(len(req.json()), 18)
         self.assertEqual(req.status_code, 200)
 
     def test_5_get_resources_with_limit_of_5_items(self):
