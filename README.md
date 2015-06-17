@@ -32,8 +32,18 @@ After installing the app, edit the `iclinic/apps/config.py` file with informatio
 
 ```python
 
-MONGO_HOST = 'your localhost'
-MONGO_PORT = mongodb port
+MONGO_HOST = 'your localhost address'
+MONGO_PORT = your mongodb port
+```
+
+#### We're almost there...Before running tests, make sure if you're running the application
+
+### Running
+
+Running the application:
+
+```bash
+make run
 ```
 
 ### Testing
@@ -42,12 +52,4 @@ Running tests:
 
 ```bash
 make test
-```
-
-### Running
-
-Running the application:
-
-```bash
-make run
 ```
