@@ -38,17 +38,18 @@ class ZipCodeResource(object):
         if zip_code:
             if validate_zipcode(zip_code):
                 zipcodes = self.model.find_by_zipcode(zip_code)
+                logger.info('%s found...' % zipcodes.zip_code or None)
             else:
                 raise falcon.HTTPError(
                     falcon.HTTP_400,
                     'The `zip_code` param must be an integer valid zipcode.')
         else:
             zipcodes = self.model.all(limit)
-        count = zipcodes.count() if zipcodes else 0
+            logger.info('%s resources found limited by %s...' % (
+                zipcodes.count(), limit))
         zipcodes = json_util.dumps(zipcodes)
         resp.body = zipcodes
         resp.status = falcon.HTTP_200
-        logger.info('%s resources found...' % count)
 
     @falcon.before(validate_zipcode_on_before)
     def on_post(self, req, resp):
