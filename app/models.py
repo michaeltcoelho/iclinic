@@ -38,4 +38,4 @@ class ZipCodeModel(object):
     def find_by_zipcode(self, zipcode):
         """Returns a document by zip_code
         """
-        return self.zipcodes.find_one({"zip_code": zipcode})
+        return self.zipcodes.find_one({"zip_code": zipcode}, {'_id': False})
