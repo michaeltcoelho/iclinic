@@ -46,7 +46,7 @@ class ZipCodeResource(object):
         else:
             zipcodes = self.model.all(limit)
             logger.info('%s resources found limited by %s...' % (
-                zipcodes.count(), limit))
+                zipcodes.count(True), limit))
         zipcodes = json_util.dumps(zipcodes)
         resp.body = zipcodes
         resp.status = falcon.HTTP_200
