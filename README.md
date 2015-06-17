@@ -26,7 +26,7 @@ Run the following command:
 make install
 ```
 
-# After installling
+### After installling
 
 After installing the app, edit the `iclinic/apps/config.py` file with information about your mongodb running instance
 
