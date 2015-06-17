@@ -3,7 +3,7 @@
 * An activated python virtualenv.
 * mongodb installed and running.
 
-#### Considering you already have installed the dependencies, created and activated your virtualenv:
+#### Considering you have already installed the requirements:
 
 
 ### Installing
