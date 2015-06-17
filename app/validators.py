@@ -14,7 +14,8 @@ def validate_zipcode_on_before(req, resp, params):
     if not validate_zipcode(zipcode):
         raise falcon.HTTPError(
             falcon.HTTP_400,
-            'The `zip_code` param must be an integer valid zipcode.')
+            'The `zip_code` param must be an integer valid zipcode '
+            'with 8 digits.')
 
 
 def validate_zipcode(zipcode):
