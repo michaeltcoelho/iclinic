@@ -38,7 +38,8 @@ class ZipCodeResource(object):
         if zip_code:
             if validate_zipcode(zip_code):
                 zipcodes = self.model.find_by_zipcode(zip_code)
-                logger.info('%s found...' % zipcodes.get('zip_code') or None)
+                logger.info('%s found...' % (
+                    zipcodes.get('zip_code') if zipcodes else None))
             else:
                 raise falcon.HTTPError(
                     falcon.HTTP_400,
