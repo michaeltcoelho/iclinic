@@ -44,8 +44,7 @@ class ZipCodeResource(object):
                     'The `zip_code` param must be an integer valid zipcode.')
         else:
             zipcodes = self.model.all(limit)
-
-        count = zipcodes.count()
+        count = zipcodes.count() if zipcodes else 0
         zipcodes = json_util.dumps(zipcodes)
         resp.body = zipcodes
         resp.status = falcon.HTTP_200
