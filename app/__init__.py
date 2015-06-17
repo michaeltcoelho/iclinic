@@ -43,7 +43,8 @@ class ZipCodeResource(object):
             else:
                 raise falcon.HTTPError(
                     falcon.HTTP_400,
-                    'The `zip_code` param must be an integer valid zipcode.')
+                    'The `zip_code` param must be an integer valid zipcode '
+                    'with 8 digits')
         else:
             zipcodes = self.model.all(limit)
             logger.info('%s resources found limited by %s...' % (
@@ -85,7 +86,8 @@ class ZipCodeResource(object):
         if not validate_zipcode(zip_code):
             raise falcon.HTTPError(
                 falcon.HTTP_400,
-                'The `zip_code` param must be an integer valid zipcode.')
+                'The `zip_code` param must be an integer valid zipcode '
+                'with 8 digits.')
         else:
             if self.model.find_by_zipcode(zip_code):
                 self.model.delete(zip_code)

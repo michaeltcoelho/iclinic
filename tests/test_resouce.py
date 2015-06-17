@@ -25,27 +25,30 @@ class ZipCodeResourceTest(unittest.TestCase):
     def test_2_post_resource_with_invalid_zipcode(self):
         """Makes a POST /zipcode to insert a zipcode
 
-        should return a status code 400
+        should return a status code 400 and the specific message
+        The `zip_code` param must be an integer valid zipcode with 8 digits.
         """
         req = requests.post(self.endpoint, data={'zip_code': '14820-000'})
         data = req.json()
         self.assertEqual(req.status_code, 400)
         self.assertEqual(
             data['title'],
-            u'The `zip_code` param must be an integer valid zipcode.')
+            u'The `zip_code` param must be an integer valid zipcode '
+            u'with 8 digits.')
 
     def test_3_post_resource_with_a_too_long_zipcode(self):
         """Makes a POST /zipcode to insert a zipcode
 
         should return a status code 400 and the specific message
-        The `zip_code` param must be an integer valid zipcode.
+        The `zip_code` param must be an integer valid zipcode with 8 digits.
         """
         req = requests.post(self.endpoint, data={'zip_code': 148200000})
         data = req.json()
         self.assertEqual(req.status_code, 400)
         self.assertEqual(
             data['title'],
-            u'The `zip_code` param must be an integer valid zipcode.')
+            u'The `zip_code` param must be an integer valid zipcode '
+            u'with 8 digits.')
 
     def test_4_get_resources_without_limit(self):
         """Makes a GET /zipcode without a limit query string
@@ -84,27 +87,29 @@ class ZipCodeResourceTest(unittest.TestCase):
         """Makes a GET /zipcode with an invalid zip_code
 
         should return a status code 400 and the specific message
-        The `zip_code` param must be an integer valid zipcode.
+        The `zip_code` param must be an integer valid zipcode with 8 digits.
         """
         req = requests.get('{}/{}'.format(self.endpoint, '12332-000'))
         data = req.json()
         self.assertEqual(req.status_code, 400)
         self.assertEqual(
             data['title'],
-            u'The `zip_code` param must be an integer valid zipcode.')
+            u'The `zip_code` param must be an integer valid zipcode '
+            u'with 8 digits.')
 
     def test_8_get_a_resource_with_a_too_long_zipcode(self):
         """Makes a GET /zipcode with an invalid zip_code
 
         should return a status code 400 and the specific message
-        The `zip_code` param must be an integer valid zipcode.
+        The `zip_code` param must be an integer valid zipcode with 8 digits.
         """
         req = requests.get('{}/{}'.format(self.endpoint, 148200000))
         data = req.json()
         self.assertEqual(req.status_code, 400)
         self.assertEqual(
             data['title'],
-            u'The `zip_code` param must be an integer valid zipcode.')
+            u'The `zip_code` param must be an integer valid zipcode '
+            u'with 8 digits.')
 
     def test_9_delete_a_resource(self):
         """Makes a DELETE /zipcode request
@@ -118,11 +123,12 @@ class ZipCodeResourceTest(unittest.TestCase):
         """Makes a DELETE /zipcode request with an invalid zipcode
 
         should return a status code 400 and the specific message
-        The `zip_code` param must be an integer valid zipcode.
+        The `zip_code` param must be an integer valid zipcode with 8 digits.
         """
         req = requests.delete('{}/{}'.format(self.endpoint, '148200-000'))
         data = req.json()
         self.assertEqual(req.status_code, 400)
         self.assertEqual(
             data['title'],
-            u'The `zip_code` param must be an integer valid zipcode.')
+            u'The `zip_code` param must be an integer valid zipcode '
+            u'with 8 digits.')
