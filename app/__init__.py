@@ -80,19 +80,24 @@ class ZipCodeResource(object):
                     falcon.HTTP_400,
                     'It wasn`t possible to insert your zipcode. Try it again.')
 
-    @falcon.before(validate_zipcode_on_before)
     def on_delete(self, req, resp, zip_code):
         """Handles a DELETE /zipcode request
         """
-        if self.model.find_by_zipcode(zip_code):
-            self.model.delete(zip_code)
-            resp.status = falcon.HTTP_204
-            logger.info('%s was removed...' % zip_code)
-        else:
-            logger.info('%s doesn`t exists in the database...' % zip_code)
+        if not validate_zipcode(zip_code):
             raise falcon.HTTPError(
                 falcon.HTTP_400,
-                'The zipcode passed does not exists in our database.')
+                'The `zip_code` param must be an integer valid zipcode '
+                'with 8 digits.')
+        else:
+            if self.model.find_by_zipcode(zip_code):
+                self.model.delete(zip_code)
+                resp.status = falcon.HTTP_204
+                logger.info('%s was removed...' % zip_code)
+            else:
+                logger.info('%s doesn`t exists in the database...' % zip_code)
+                raise falcon.HTTPError(
+                    falcon.HTTP_400,
+                    'The zipcode passed does not exists in our database.')
 
 
 app = application = falcon.API()
