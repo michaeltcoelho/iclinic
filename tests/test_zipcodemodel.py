@@ -55,7 +55,7 @@ class ZipCodeModelTest(unittest.TestCase):
         self.assertEqual(zipcode['ok'], 1)
 
     def test_3_all_without_limit(self):
-        """Gets all items of the collection
+        """Get all items from the collection
 
         should return a list of 3 items
         """
@@ -63,7 +63,7 @@ class ZipCodeModelTest(unittest.TestCase):
         self.assertEqual(zipcodes.count(), 27)
 
     def test_4_all_with_limit(self):
-        """Gets all items of the collection with a limit
+        """Get all items from the collection with a limit
 
         should return a list of 2 items
         """

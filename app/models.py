@@ -12,7 +12,7 @@ class ZipCodeModel(object):
         self.zipcodes = self.db.zipcodes
 
     def insert(self, data):
-        """Makes an insertion in mongodb
+        """Makes an insertion in the zipcodes collection
         """
         return self.zipcodes.insert({
             'zip_code': data.get('cep'),
@@ -23,13 +23,13 @@ class ZipCodeModel(object):
         })
 
     def delete(self, zipcode):
-        """Makes a deletion in mongodb
+        """Makes a deletion in the zipcodes collection
         """
         return self.zipcodes.remove({"zip_code": zipcode})
 
     def all(self, limit=None):
         """Returns a list of data with a given limit when it is passed,
-        when not, return all data in the collection
+        when not, return all data from the zipcodes collection
         """
         if not limit:
             return self.zipcodes.find({}, {'_id': False})

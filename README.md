@@ -5,7 +5,6 @@
 
 #### Considering you have already installed the requirements:
 
-
 ### Installing
 
 Clone the repository and install it:

@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 class PostMonWrapper(requests.Session):
-    """PostManWrapper - A wrapper to communicate to postmon
+    """PostManWrapper - A wrapper to communicate with postmon
 
     Postmon - http://postmon.com.br/
     """
